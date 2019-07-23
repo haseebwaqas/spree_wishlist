@@ -1,5 +1,3 @@
-
-
 <% user_wishlist_products = (spree_current_user.present? && spree_current_user.wishlists.present?) ?  spree_current_user.wishlists.first.wished_products : "" %>
 <% is_product_wished = user_wishlist_products.present? ? user_wishlist_products.select{|s| s.variant.product == product}.last : "" %>
 <% if spree_current_user.present? %>
@@ -20,5 +18,6 @@
     </div>
   <% end %>
 <% else %>
-  <%= link_to "ADD TO WISHLIST" ,spree.login_path , class: "button-body-2 wish-btn",style: "display: inline-block; float: left; width: 66.8%;  margin-left: 8px; padding: 9px 49px;" %>
+  <%= link_to "<button type='button' class='button-body-2 wish-btn'>ADD TO WISHLIST</button>".html_safe, spree.login_path %>
 <% end %>
+
